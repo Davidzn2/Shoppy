@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{%block pagetitle%}{%endblock%}</title>
+	<meta charset="UTF-8">
+	{%load staticfiles%}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<style type="text/css">
+	
+		header{
+			background: white;
+		}
+		footer{
+			background: white;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<nav>
+			header
+		</nav>
+	</header>
+	{%block content%}{%endblock%}
+	<footer>
+		<h2>Footer</h2>
+	</footer>
+</body>
+</html>

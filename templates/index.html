@@ -1,0 +1,20 @@
+{%extends "base.html"%}
+<!--Aqui llamamos el titulo-->
+{%block pagetitle%}
+	{{title}}
+{%endblock%}
+<!--Aqui llamamos a la seccion de contenido de la base-->
+{% block content %}
+	<h1>Hola mundo</h1>
+  <a href="{% url 'products.views.new_product' %}">Agregar producto</a>
+	  	{%for pr in product%}
+  		<li>
+  			Item: <a href="{% url 'products.views.product_detail' pk=pr.pk%}">
+  					{{pr.name}}
+  				</a>, <br> 
+  			Price: {{pr.price}}<br>
+  			<img src="{{ pr.image.url }}">
+  		</li>
+  	{%endfor%}
+{% endblock content %}
+    
