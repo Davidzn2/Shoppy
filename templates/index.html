@@ -5,7 +5,14 @@
 {%endblock%}
 <!--Aqui llamamos a la seccion de contenido de la base-->
 {% block content %}
+  {% if user.is_authenticated %}
+    {{user.username}} 
+    <a href="{% url 'userprofiles:logout' %}">logout</a> <br>
+  {% else %}
+    <a href="{% url 'userprofiles:authentication'%}">Login</a> 
+  {% endif %}
 	<h1>Hola mundo</h1>
+ 
   <a href="{% url 'products.views.new_product' %}">Agregar producto</a>
 	  	{%for pr in product%}
   		<li>

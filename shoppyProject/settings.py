@@ -26,7 +26,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #Mis aplicaciones
+    #Aplicaciones hechas
     'products.apps.ProductsConfig',
     'client.apps.ClientConfig',
 )
@@ -89,6 +89,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
