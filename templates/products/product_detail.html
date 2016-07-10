@@ -1,0 +1,17 @@
+{%extends "base.html"%}
+<!--Aqui llamamos el titulo-->
+{%block pagetitle%}
+	{{title}}
+{%endblock%}
+<!--Aqui llamamos a la seccion de contenido de la base-->
+{% block content %}
+	<h2>Nombre: </h2>
+	<p>{{product.name}}</p>
+	<h2>Categoria: </h2>
+	<p>{{product.category}}</p>
+	<h2>Descripción: </h2>
+	<p>{{product.description}}</p>
+	<h2>Precio: </h2>
+	<p>{{product.price}}</p>
+	<img src="{{product.image.url}}">
+{% endblock content %}

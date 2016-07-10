@@ -2,17 +2,13 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.shortcuts import render, get_object_or_404
+
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+
 from .forms import ProductForm
 from .models import Product
 # Create your views here.
-
-def hello_world(request):
-	product = Product.objects.order_by('id')
-	context = {
-		'title': 'Shoppy',
-		'product' : product
-	}
-	return render(request,'index.html',context)
 
 def product_detail(request, pk):
 	product = 	get_object_or_404(Product,pk=pk)
@@ -37,3 +33,11 @@ def new_product(request):
 		'form':form
 	}
 	return render(request,'new_product.html', context)
+
+
+class ProductList(ListView):
+	model = Product
+
+class ProductDetail(DetailView):
+	model = Product 
+
