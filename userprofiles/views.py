@@ -9,11 +9,12 @@ def authentication(request):
 		username = request.POST.get('username' , None)
 		password = request.POST.get('password' , None)
 		if action == 'signup':
-			user = User.objects.create_user(username=username, password=password)
+			user = User.objects.create_user(username=username,
+											password=password)
 			user.save()
 		elif action == 'login':
-			user = authenticate(username=username, password=password)
+			user = authenticate(username=username,
+								password=password)
 			login(request , user)
 		return redirect('/')
 	return render(request, 'login.html', {})
-

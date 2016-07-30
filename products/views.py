@@ -10,15 +10,11 @@ from .forms import ProductForm
 from .models import Product
 # Create your views here.
 
-def product_detail(request, pk):
-	product = 	get_object_or_404(Product,pk=pk)
-	template = loader.get_template('detail.html')
-	context={
-		'product':product
-	}
-	return render(request,'detail.html',context)
-	class Meta:
-		ordering=('id',)
+class ProductList(ListView):
+	model = Product
+
+class ProductDetail(DetailView):
+	model = Product
 
 def new_product(request):
 	if request.method == 'POST':
@@ -33,11 +29,3 @@ def new_product(request):
 		'form':form
 	}
 	return render(request,'new_product.html', context)
-
-
-class ProductList(ListView):
-	model = Product
-
-class ProductDetail(DetailView):
-	model = Product 
-
