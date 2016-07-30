@@ -8,12 +8,13 @@ from django.views.generic.detail import DetailView
 
 from .forms import ProductForm
 from .models import Product
+from .mixins import LoginRequiredMixin
 # Create your views here.
 
 class ProductList(ListView):
 	model = Product
 
-class ProductDetail(DetailView):
+class ProductDetail(LoginRequiredMixin, DetailView):
 	model = Product
 
 @login_required()
